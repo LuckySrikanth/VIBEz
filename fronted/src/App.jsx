@@ -9,7 +9,7 @@ import Contactus from "./pages/Contactus/Contactus";
 import ProductCart from "./pages/ProductCart/ProductCart";
 import ProductCodeId from "./components/ProductCodeId/ProductCodeId";
 import Cart from "./pages/Cart/Cart";
-import PlaceOrder from "./pages/PlaceOrder/Placeorder";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Footer from "./components/Footer/Footer";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import Verify from "./pages/Verify/Verify";
