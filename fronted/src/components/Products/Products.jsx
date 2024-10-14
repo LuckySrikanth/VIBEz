@@ -10,7 +10,7 @@ const Products = () => {
   });
 
   const [sortOrder, setSortOrder] = useState("Ascending");
-  const [searchQuery, setSearchQuery] = useState(""); // Search state
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
@@ -25,12 +25,10 @@ const Products = () => {
   };
 
   const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value.toLowerCase()); // Update search query
+    setSearchQuery(event.target.value.toLowerCase());
   };
 
-  // Filter and search logic
   const filteredProducts = All_Products.filter((product) => {
-    // Check filters
     const isCategoryMatch =
       !filters.men && !filters.women && !filters.kid
         ? true
@@ -38,13 +36,11 @@ const Products = () => {
           (filters.women && product.category === "women") ||
           (filters.kid && product.category === "kid");
 
-    // Check search query
     const isSearchMatch = product.name.toLowerCase().includes(searchQuery);
 
     return isCategoryMatch && isSearchMatch;
   });
 
-  // Sort logic
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOrder === "Ascending") {
       return a.new_price - b.new_price;
@@ -54,9 +50,9 @@ const Products = () => {
   });
 
   return (
-    <div className="flex">
-      {/* Filter Section */}
-      <div className="w-[25%] p-4 border-r border-gray-200 m-3">
+    <div className="flex flex-col md:flex-row">
+      {" "}
+      <div className="w-full md:w-[25%] p-4 border-b md:border-r md:border-b-0 border-gray-200 m-3">
         <h2 className="text-lg font-semibold mb-4">Filters</h2>
         <div className="mb-4">
           <h3 className="font-semibold mb-2">Categories</h3>
@@ -92,16 +88,15 @@ const Products = () => {
           </label>
         </div>
       </div>
-
-      <div className="w-[75%] p-4">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-4">
+      <div className="w-full md:w-[75%] p-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
             <input
               type="search"
               placeholder="Search"
-              value={searchQuery} // Set value for the search input
-              onChange={handleSearchChange} // Update search query on change
-              className="p-2 border border-gray-300 rounded w-full max-w-xs"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="p-2 border border-gray-300 rounded w-full sm:max-w-xs"
             />
             <select
               className="p-2 border border-gray-300 rounded"
@@ -112,9 +107,10 @@ const Products = () => {
               <option>Descending</option>
             </select>
           </div>
-          <h1 className="text-lg font-semibold">Products</h1>
+          <h1 className="text-lg font-semibold mt-4 sm:mt-0">Products</h1>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4 gap-y-6">
+
+        <div className="grid grid-cols-2 gap-4 gap-y-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3">
           {sortedProducts.map((eachItem) => (
             <ProductItems
               key={eachItem.id}
