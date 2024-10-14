@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <script id="template-id" type="text/x-handlebars-template">
+    <div><h1>{{title}}</h1><p>{{body}}</p></div>
+  </script>
+  <script>
+    var source = document.getElementById('template-id').innerHTML;
+    var template = Handlebars.compile(source);
+    console.log(template)
+    var data = { title: 'Hello, Handlebars!', body: 'This is a simple Handlebars example.' };
+    var html = template(data);
+    // document.getElementById('content').innerHTML = html;
+    console.log(html)
+  </script>
+  <div id="content"></div>
+
+</body>
+
+</html>
