@@ -34,7 +34,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/user/${isLogin}`,
+        `https://vibez-backend.onrender.com/user/${isLogin}`,
         userLoginData
       );
       if (response.data.success) {
