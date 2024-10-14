@@ -8,7 +8,7 @@ const StoreContextProvider = (props) => {
   const [In, setIn] = useState("signin");
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
-  const url = "http://localhost:5000";
+  const url = "https://vibez-backend.onrender.com";
 
   useEffect(() => {
     // console.log(cartItems);
